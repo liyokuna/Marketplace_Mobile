@@ -1,0 +1,63 @@
+<!--
+  Generated template for the Enregistrer page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>enregistrer</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding center>
+	<ion-grid>
+		<ion-row>
+			<ion-col width-90>
+				<ion-input type="text"  name="nom"  placeholder="Nom"></ion-input>
+			</ion-col>
+		</ion-row>
+		
+		<ion-row>
+			<ion-col width-90>
+				<ion-input type="text"  name="prenom"  placeholder="Prénom"></ion-input>
+			</ion-col>
+		</ion-row>
+		
+		<ion-row>
+			<ion-col width-90>
+				<ion-input type="text"  name="age"  placeholder="Age"></ion-input>
+			</ion-col>
+		</ion-row>
+		
+		<ion-row>
+			<ion-col width-90>
+				<ion-input type="text"  name="profession"  placeholder="Profession"></ion-input>
+			</ion-col>
+		</ion-row>
+		
+		<ion-row>
+			<ion-col width-90>
+				<ion-list radio-group>
+				  <ion-list-header>
+					Vous êtes qui ?
+				  </ion-list-header>
+
+				  <ion-item>
+					<ion-label>Gerant</ion-label>
+					<ion-radio checked="true" value="gerant"></ion-radio>
+				  </ion-item>
+
+				  <ion-item>
+					<ion-label>Client</ion-label>
+					<ion-radio value="client"></ion-radio>
+				  </ion-item>
+				</ion-list>
+			</ion-col>
+		</ion-row>
+		<button ion-button type="submit" block>S'enregistrer</button>
+	</ion-grid>
+</ion-content>

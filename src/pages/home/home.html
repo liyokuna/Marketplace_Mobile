@@ -12,10 +12,12 @@
 		<ion-col width-99>Market Place, béneficier des bons plans de vos magasins preferés!</ion-col>
 	</ion-row>
 	<ion-row center>
-		<ion-col offset-25><button ion-button outline>Créer Un compte</button></ion-col>
+		<ion-col offset-25><button ion-button outline [navPush]="enregistrerpage ">Créer Un compte</button></ion-col>
 	</ion-row>
 	<ion-row center>
-		<ion-col offset-25><button ion-button outline>Se Connecter</button></ion-col>
+		<ion-col offset-25>
+				<button ion-button outline [navPush]="connectionpage ">Se Connecter</button>
+			</ion-col>
 	</ion-row>
 </ion-grid>
 </ion-content>
