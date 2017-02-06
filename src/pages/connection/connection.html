@@ -13,18 +13,36 @@
 </ion-header>
 
 
-<ion-content padding>
-		<ion-list inset>
-
-	  <ion-item>
-		<ion-label>Username</ion-label>
-		<ion-input type="text"></ion-input>
-	  </ion-item>
-
-	  <ion-item>
-		<ion-label>Password</ion-label>
-		<ion-input type="password"></ion-input>
-	  </ion-item>
-
-	</ion-list>
+<ion-content class="login-content" padding>
+	<ion-row class="logo-row">
+		<ion-col></ion-col>
+		<ion-col width-60>
+			<img src="assets/icon/Cart.png"/>
+		</ion-col>
+		<ion-col></ion-col>
+	</ion-row>
+	<div class="login-box">
+		<form (ngSubmit)="login()" #registerForm="ngForm">
+			<ion-row>
+				<ion-col>
+					<ion-list inset>
+					  <ion-item>
+						<ion-label>Mèl</ion-label>
+						<ion-input type="text" name="mail" [(ngModel)]=registerCredentials.mel required></ion-input>
+					  </ion-item>
+					  <ion-item>
+						<ion-label>Mot de passe</ion-label>
+						<ion-input type="password" name="password" [(ngModel)]=registerCredentials.pwd required></ion-input> 
+					  </ion-item>
+					</ion-list>
+				</ion-col>
+			</ion-row>
+			
+			<ion-row>
+				<ion-col class="signup-col">
+					<button ion-button type="submit">Connexion</button>
+				</ion-col>
+			</ion-row>
+		</form>
+	</div>
 </ion-content>

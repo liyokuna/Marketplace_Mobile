@@ -6,36 +6,52 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>enregistrer</ion-title>
+  <ion-navbar color="dark">
+    <ion-title>Enregistrer</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding center>
+<ion-content class="login-content" padding center>
+<div>
+	<form (ngSubmit)="register()" #registerForm="ngForm">
 	<ion-grid>
+	
 		<ion-row>
 			<ion-col width-90>
-				<ion-input type="text"  name="nom"  placeholder="Nom"></ion-input>
+				<ion-input type="text"  name="prenom"  placeholder="Prénom" [(ngModel)]="registerCredentials.prenom" required></ion-input>
 			</ion-col>
 		</ion-row>
 		
 		<ion-row>
 			<ion-col width-90>
-				<ion-input type="text"  name="prenom"  placeholder="Prénom"></ion-input>
+				<ion-input type="text"  name="nom"  placeholder="Nom" [(ngModel)]="registerCredentials.nom" required></ion-input>
 			</ion-col>
 		</ion-row>
 		
 		<ion-row>
 			<ion-col width-90>
-				<ion-input type="text"  name="age"  placeholder="Age"></ion-input>
+				<ion-input type="text"  name="age"  placeholder="Age" [(ngModel)]="registerCredentials.age" required></ion-input>
 			</ion-col>
 		</ion-row>
 		
 		<ion-row>
 			<ion-col width-90>
-				<ion-input type="text"  name="profession"  placeholder="Profession"></ion-input>
+				<ion-input type="text"  name="mail"  placeholder="Mèl" [(ngModel)]="registerCredentials.mel" required></ion-input>
+			</ion-col>
+		</ion-row>
+		
+		<ion-row>
+			<ion-col width-90>
+				<ion-input type="password"  name="password" placeholder="Mot de passe"[(ngModel)]="registerCredentials.pwd" required></ion-input>
+			</ion-col>
+		</ion-row>
+		
+		
+		<ion-row>
+			<ion-col width-90>
+				<ion-input type="text"  name="profession"  placeholder="Profession" [(ngModel)]="registerCredentials.profession" required></ion-input>
 			</ion-col>
 		</ion-row>
 		
@@ -60,4 +76,6 @@
 		</ion-row>
 		<button ion-button type="submit" block>S'enregistrer</button>
 	</ion-grid>
+	</form>
+</div>
 </ion-content>

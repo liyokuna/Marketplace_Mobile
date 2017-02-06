@@ -4,6 +4,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ConnectionPage } from '../pages/connection/connection';
 import {EnregistrerPage } from '../pages/enregistrer/enregistrer';
+import { AuthService } from '../providers/auth-service';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,6 @@ import {EnregistrerPage } from '../pages/enregistrer/enregistrer';
 	ConnectionPage,
 	EnregistrerPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, AuthService]
 })
 export class AppModule {}
