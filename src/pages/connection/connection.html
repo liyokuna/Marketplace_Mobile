@@ -22,17 +22,17 @@
 		<ion-col></ion-col>
 	</ion-row>
 	<div class="login-box">
-		<form (ngSubmit)="login()" #registerForm="ngForm">
+		<form (ngSubmit)="login()" [formGroup]="registerCredentials">
 			<ion-row>
 				<ion-col>
 					<ion-list inset>
 					  <ion-item>
 						<ion-label>Mèl</ion-label>
-						<ion-input type="text" name="mail" [(ngModel)]=registerCredentials.mel required></ion-input>
+						<ion-input type="text" name="email" formControlName="email" required></ion-input>
 					  </ion-item>
 					  <ion-item>
 						<ion-label>Mot de passe</ion-label>
-						<ion-input type="password" name="password" [(ngModel)]=registerCredentials.pwd required></ion-input> 
+						<ion-input type="password" name="password" formControlName="password" required></ion-input> 
 					  </ion-item>
 					</ion-list>
 				</ion-col>

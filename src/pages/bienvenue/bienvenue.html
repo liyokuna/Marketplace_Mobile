@@ -1,0 +1,34 @@
+<!--
+  Generated template for the Bienvenue page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+</ion-header>
+
+
+
+<ion-content class="bienvenue-content" padding>
+
+<ion-grid class="centre">
+
+	<ion-row center>
+		<ion-col offset-25><button ion-button outline [navPush]="bonpage">Les Bons</button></ion-col>
+	</ion-row>
+	<ion-row center>
+		<ion-col offset-25>
+				<button ion-button outline [navPush]="marchepage">Le marché aux bons</button>
+			</ion-col>
+	</ion-row>
+</ion-grid>
+
+	<ion-tabs>
+	  <ion-tab [root]="tab1Root" tabTitle="Bon" tabIcon="paper"></ion-tab>
+	  <ion-tab [root]="tab2Root" tabTitle="Marché" tabIcon="barcode"></ion-tab>
+	  <ion-tab [root]="tab3Root" tabTitle="Panier" tabIcon="basket"></ion-tab>
+	  <ion-tab [root]="tab4Root" tabTitle="Paramètres" tabIcon="settings"></ion-tab>
+	  <ion-tab [root]="tab5Root" tabTitle="Déconnexion" tabIcon="log-out" ></ion-tab>
+	</ion-tabs>
+</ion-content>

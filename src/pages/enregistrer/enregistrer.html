@@ -15,43 +15,43 @@
 
 <ion-content class="login-content" padding center>
 <div>
-	<form (ngSubmit)="register()" #registerForm="ngForm">
+	<form [formGroup]="registerCredentials" (ngSubmit)="register()" novalidate>
 	<ion-grid>
 	
 		<ion-row>
 			<ion-col width-90>
-				<ion-input type="text"  name="prenom"  placeholder="Prénom" [(ngModel)]="registerCredentials.prenom" required></ion-input>
+				<ion-input type="text" formControlName="prenom"  placeholder="Prénom" required></ion-input>
 			</ion-col>
 		</ion-row>
 		
 		<ion-row>
 			<ion-col width-90>
-				<ion-input type="text"  name="nom"  placeholder="Nom" [(ngModel)]="registerCredentials.nom" required></ion-input>
+				<ion-input type="text" formControlName="nom"  placeholder="Nom" required></ion-input>
 			</ion-col>
 		</ion-row>
 		
 		<ion-row>
 			<ion-col width-90>
-				<ion-input type="text"  name="age"  placeholder="Age" [(ngModel)]="registerCredentials.age" required></ion-input>
+				<ion-input type="text" formControlName="age"  placeholder="Age" required></ion-input>
 			</ion-col>
 		</ion-row>
 		
 		<ion-row>
 			<ion-col width-90>
-				<ion-input type="text"  name="mail"  placeholder="Mèl" [(ngModel)]="registerCredentials.mel" required></ion-input>
+				<ion-input type="text" formControlName="email"  placeholder="Mèl" required></ion-input>
 			</ion-col>
 		</ion-row>
 		
 		<ion-row>
 			<ion-col width-90>
-				<ion-input type="password"  name="password" placeholder="Mot de passe"[(ngModel)]="registerCredentials.pwd" required></ion-input>
+				<ion-input type="password" formControlName="password"  placeholder="Mot de passe" required></ion-input>
 			</ion-col>
 		</ion-row>
 		
 		
 		<ion-row>
 			<ion-col width-90>
-				<ion-input type="text"  name="profession"  placeholder="Profession" [(ngModel)]="registerCredentials.profession" required></ion-input>
+				<ion-input type="text" formControlName="profession" placeholder="Profession" required></ion-input>
 			</ion-col>
 		</ion-row>
 		
@@ -63,14 +63,12 @@
 				  </ion-list-header>
 
 				  <ion-item>
-					<ion-label>Gerant</ion-label>
-					<ion-radio checked="true" value="gerant"></ion-radio>
+					<ion-select formControlName="type">
+						<ion-option value="Client" selected="true">Client</ion-option>
+						<ion-option value="Gerant">Gerant</ion-option>
+				    </ion-select>
 				  </ion-item>
-
-				  <ion-item>
-					<ion-label>Client</ion-label>
-					<ion-radio value="client"></ion-radio>
-				  </ion-item>
+				  
 				</ion-list>
 			</ion-col>
 		</ion-row>

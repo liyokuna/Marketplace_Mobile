@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, Platform } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
 import {SQLite} from 'ionic-native';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 /*
   Generated class for the Enregistrer page.
@@ -17,37 +18,35 @@ export class EnregistrerPage {
 
 	public database: SQLite;
 	createSuccess = false;
-	registerCredentials = {nom:'',prenom:'',mail:'',password:'',age:'',profession:'', type:''};
-	constructor(private navCtrl: NavController, private platform: Platform, private alertCtrl: AlertController, private auth: AuthService) {
+	public registerCredentials;
+	constructor(private navCtrl: NavController, private platform: Platform, private alertCtrl: AlertController, private auth: AuthService, private formBuilder: FormBuilder) {
 		this.platform.ready().then(()=>{
 			this.database = new SQLite();
 			this.database.openDatabase({name:"data.db", location:"default"}).then(()=>
-				{this.refresh();
-				}, (error)=>{
-					console.log("ERROR:",error);
-				});
+				{}).catch(()=>{});
+		}).catch(error => console.error("Erreur Problème d'ouverture de la base de données:",error));
+		this.registerCredentials = this.formBuilder.group({
+			prenom:'',nom:'',email:'',password:'',age:'',profession:'', type:''
 		});
 	}
+		
 	public add(){
 		this.database.executeSql(
-		"INSERT INTO users (prenom,nom,email,age,password,profession,type) VALUES(this.registerCredentials.prenom,this.registerCredentials.nom,this.registerCredentials.mail,this.registerCredentials.age,this.registerCredentials.password,this.registerCredentials.type)",[]).then((data)=>{
+		"INSERT INTO users (prenom,nom,email,age,password,profession,type) VALUES(this.registerCredentials.value.prenom,this.registerCredentials.value.nom,this.registerCredentials.value.mail,this.registerCredentials.value.age,this.registerCredentials.value.password,this.registerCredentials.value.type)",[]).then((data)=>{
 			console.log("INSERTED"+JSON.stringify(data));
-		},(error)=>{console.log("ERROR"+JSON.stringify(error.err))
+		},(error)=>{console.log("Erreur"+JSON.stringify(error.err))
 		});
 	}
 	public register(){
-		this.auth.register(this.registerCredentials).susbscribe(success => {
-			if(success){
-				this.createSuccess = true;
-				this.add();
-				this.showPopup("Success","Votre compte a été crée avec succès");
-			}else{
-				this.showPopup("Erreur","Il y a eu des problèmes lors de la création de votre compte");
-			}
-		},
-		error=>{
-			this.showPopup("Erreur",error);
-		});
+		if(this.registerCredentials){
+			
+			this.createSuccess = true;
+			this.add();
+			this.showPopup("Success","Votre compte a été crée avec succès");
+			//this.navCtrl.push(this.bienvenuepage);
+		}else{
+			this.showPopup("Erreur","Il y a eu des problèmes lors de la création de votre compte");
+		};
 	}
 	
 	showPopup(title,text){
